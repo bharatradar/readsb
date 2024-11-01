@@ -2244,7 +2244,7 @@ void traceMaintenance(struct aircraft *a, int64_t now, threadpool_buffer_t *pass
         return;
     }
 
-    if (Modes.json_globe_index) {
+    if (Modes.writeTraces) {
         if (now > a->trace_next_perm)
             a->trace_write |= WPERM;
         if (now > a->trace_next_mw)
@@ -3349,7 +3349,7 @@ static void compressACAS(char *dateDir) {
 }
 
 void checkNewDay(int64_t now) {
-    if (!Modes.globe_history_dir || !Modes.json_globe_index)
+    if (!Modes.globe_history_dir || !Modes.writeTraces)
         return;
 
     static int64_t next_check;
