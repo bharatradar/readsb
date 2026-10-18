@@ -25,7 +25,7 @@ RUN --mount=type=bind,source=.,target=/app/git \
     wget -O /usr/local/share/tar1090/aircraft.csv.gz https://github.com/wiedehopf/tar1090-db/raw/csv/aircraft.csv.gz && \
     true
 
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 RUN \
     --mount=type=bind,from=builder,source=/,target=/builder/ \
     apt-get update && \
